@@ -4,10 +4,17 @@ import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Main {
-    static final Random rndm = new Random();
+
     public static void main(String[] args) throws IOException {
+
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        char[] symbolsArray = {
+        Random rndm = new Random();
+
+        System.out.print(StringStore.greetings + StringStore.warnings + "\n");
+        StringBuilder stringBuilder = new StringBuilder();
+
+        char[] symbolsArray = new char[]{
                 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'g', 'k', 'l', 'm', 'n', 'o', 'p',
                 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'G', 'K',
                 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'а', 'б', 'в', 'г', 'д', 'е',
@@ -17,11 +24,13 @@ public class Main {
                 '5', '6', '7', '8', '9', ' ', '¬', '!', '\"', '£', '$', '%', '^', '&', '*', '(', ')', '_', '+', '@', '}',
                 '{', '~', '<', '>', '?', '\\', ';', 'ª', '·', '¿', '+', 'ç', '_', ':', '[', ']'
         };
-        System.out.print(StringStore.greetings + StringStore.warnings);
+
         int a = Integer.parseInt(reader.readLine());
 
-        for (int i = 1; i < a; i ++){
-            System.out.println(symbolsArray);
+        for (int i = 0; i < a; i++) {
+            int randomlLeter = rndm.nextInt(symbolsArray.length); // извлекаем случайную букву
+            stringBuilder.append(symbolsArray[randomlLeter]); // формируем строку из букв
         }
+        System.out.println(stringBuilder);
     }
 }
